@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example</title>
+    
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.active {
+    background-color: #333;
+    color: #fff;
+}
+
+</style>
+<body>
+    <div class="container" id="container">
+        <p id="text">Initial Text</p>
+        <button id="toggleButton">Change</button>
+    </div>
+
+    <script>
+     document.getElementById('toggleButton').addEventListener('click', function() {
+    const button = document.getElementById('toggleButton');
+    const text = document.getElementById('text');
+    const container = document.getElementById('container');
+
+    // Toggle text content
+    if (button.textContent === 'Change') {
+        button.textContent = 'Revert';
+        text.textContent = 'Changed Text';
+        container.style.backgroundColor = '#4CAF50'; // Change container color
+        button.classList.add('active');
+    } else {
+        button.textContent = 'Change';
+        text.textContent = 'Initial Text';
+        container.style.backgroundColor = '#ccc'; // Revert container color
+        button.classList.remove('active');
+    }
+});
+
+    </script>
+</body>
+</html>
